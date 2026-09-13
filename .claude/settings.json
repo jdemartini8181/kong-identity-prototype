@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Bash(npm run dev)",
+      "Bash(npm run build)",
+      "Bash(npm install)",
+      "Bash(git commit -m ' *)",
+      "Bash(grep -r \"show-close\\\\|showClose\\\\|dismissible\\\\|isDismissible\\\\|closable\" /Users/jessica.demartini/Documents/design-prototyping-starter-kit/../../repos/kongponents/src/components/KAlert --include=\"*.ts\" --include=\"*.vue\" -l 2>/dev/null)",
+      "Read(//Users/jessica.demartini/repos/kongponents/src/components/**)",
+      "Bash(find /Users/jessica.demartini/Documents/design-prototyping-starter-kit/../../repos/kongponents/src/components -iname \"*alert*\" 2>/dev/null)",
+      "Read(//Users/jessica.demartini/repos/kongponents/src/**)",
+      "Bash(find /Users/jessica.demartini/Documents/design-prototyping-starter-kit/../../repos/kongponents -iname \"*alert*\" 2>/dev/null | head -20)",
+      "Read(//Users/jessica.demartini/repos/**)",
+      "Bash(node -e \"const icons = require\\('/Users/jessica.demartini/Documents/design-prototyping-starter-kit/prototypes/kong-identity-v2/node_modules/@kong/icons/dist/index.js'\\); const names = Object.keys\\(icons\\).filter\\(k => /globe|earth|web|portal|world|browser/i.test\\(k\\)\\); console.log\\(names.slice\\(0,20\\)\\)\")"
+    ]
+  }
+}
