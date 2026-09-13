@@ -4,7 +4,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/',
+  base: './',
   define: {
     __VUE_PROD_DEVTOOLS__: true,
   },
