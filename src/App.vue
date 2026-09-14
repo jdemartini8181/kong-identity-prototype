@@ -25,12 +25,15 @@ const isIdentityRoute = computed(() => String(route.path).startsWith('/identity'
 const subState = () => principalStore.principals.value.length > 0 ? 'existing' : 'new'
 
 const STATES = [
-  { key: 'new', label: 'First time setup' },
-  { key: 'existing', label: 'Existing principals' },
+  { key: 'new', label: 'First-time experience' },
+  { key: 'existing', label: 'Manage principals' },
 ]
 
 watch(isIdentityRoute, (isActive) => {
   if (isActive) {
+    if (route.query.principals === 'existing' && principalStore.principals.value.length === 0) {
+      principalStore.seed()
+    }
     switchers.set('default', {
       states: STATES,
       currentValue: subState(),

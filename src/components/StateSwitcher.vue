@@ -1,20 +1,23 @@
 <template>
   <div v-if="entries.length > 0" class="state-switcher-group">
-    <div
-      v-for="entry in entries"
-      :key="entry.id"
-      class="segmented-control"
-    >
-      <span v-if="entries.length > 1" class="switcher-label">{{ entry.label }}</span>
-      <button
-        v-for="state in entry.states"
-        :key="state.key"
-        class="segment"
-        :class="{ 'is-active': entry.currentValue === state.key }"
-        @click="setValue(state.key, entry.id)"
+    <span class="state-switcher-title">Explore the experience:</span>
+    <div class="state-switcher-entries">
+      <div
+        v-for="entry in entries"
+        :key="entry.id"
+        class="segmented-control"
       >
-        {{ state.label }}
-      </button>
+        <span v-if="entries.length > 1" class="switcher-label">{{ entry.label }}</span>
+        <button
+          v-for="state in entry.states"
+          :key="state.key"
+          class="segment"
+          :class="{ 'is-active': entry.currentValue === state.key }"
+          @click="setValue(state.key, entry.id)"
+        >
+          {{ state.label }}
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -44,13 +47,26 @@ const entries = computed(() =>
   right: 16px;
   z-index: 1000;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 10px;
   background-color: #1a1a2e;
   border-radius: 10px;
-  padding: 8px;
+  padding: 8px 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.state-switcher-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+}
+
+.state-switcher-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .segmented-control {
